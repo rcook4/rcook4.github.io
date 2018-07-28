@@ -20,7 +20,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.14/c3.min.js"></script>
     <style>
-        html, body, #menu, #LineChart {
+        html, body, #LineChart {
             height: 100%;
             min-height: 100%;
             width: 100%;
@@ -278,6 +278,25 @@ a:hover {
     'parent': '#LineChart',
     'csv': tcsv
   }).render();
+
+labelAnnotations = {
+    return [{
+            id: "W2K",
+            // If you don't provide a custom "type" attribute in your options dictionary, , 
+            // the default type in the getAnnotations function will be used.
+            note: {
+                label: "Y2K",
+                title: "01-01-2000"
+            },
+            data: get_date_data("2000-01-01T00:00", data),
+            dx: -15, 
+            dy: -57, 
+            },
+            type: d3.annotationCalloutCircle  // This annotation refers to an area rather than a point
+        },
+    ]
+}    
+
 </script>
 </body>
 </html> 
