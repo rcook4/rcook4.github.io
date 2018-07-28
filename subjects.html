@@ -21,8 +21,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.14/c3.min.js"></script>
     <style>
         html, body, #LineChart {
-            height: 1080;
-            width: 1920;
+            height: 100%;
+            min-height: 100%;
+            width: 100%;
+            min-width: 100%;
         }
 a {
     text-decoration: none;
@@ -295,7 +297,7 @@ a:hover {
             label: "Added connector end 'arrow', note wrap '180', and note align 'left'",
             title: "d3.annotationLabel",
             wrap: 150,
-            align: "left"
+            align: "right"
           },
           connector: {
             end: "arrow" // 'dot' also available
@@ -317,10 +319,10 @@ a:hover {
           subject: {
             radius: 50
           },
-          x: 1000,
-          y: 620,
-          dy: 0,
-          dx: 100
+          x: 800,
+          y: 600,
+          dy: 1,
+          dx: 1
         }
       ,{
           note: {
