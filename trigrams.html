@@ -61,6 +61,10 @@ a:hover {
     background-color: #f1f1f1;
     color: black;
 }
+
+.annotation text {
+    font-size: 2em;
+}
     </style>
 </head>
 <div id="menu">
@@ -286,5 +290,36 @@ a:hover {
   }).render();
 
 </script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+    <script>
+        yearScale = d3.scaleTime()
+          .domain([new Date(1808, 0, 1), new Date(2008, 0, 1)])
+          .range([0, 200]);
+      const annotations = [{
+          note: {
+            label: "2008 data skewed (not full year)",
+            wrap: 300,
+            align: "right"
+          },
+          connector: {
+            end: "arrow"
+          },
+          x: 1280,
+          y: 600,
+          dx: -300,
+          dy: 0
+      }].map(function(d){ d.color = "#464646"; return d})
+
+        const makeAnnotations = d3.annotation()
+          .type(d3.annotationLabel)
+          .annotations(annotations)
+
+        d3.select("svg")
+          .append("g")
+          .attr("class", "annotation-group")
+          .call(makeAnnotations)
+</script>
+
 </body>
 </html> 
