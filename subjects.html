@@ -55,6 +55,11 @@ a:hover {
     background-color: #f1f1f1;
     color: black;
 }
+.annotation text {
+    font-size: .7em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
     </style>
 </head>
 <div id="menu">
@@ -285,57 +290,15 @@ a:hover {
         yearScale = d3.scaleTime()
           .domain([new Date(1808, 0, 1), new Date(2008, 0, 1)])
           .range([0, 200]);
-      const annotations = [
-        {
+      const annotations = [{
           note: {
-            label: "Basic settings with subject position(x,y) and a note offset(dx, dy)",
-            title: "d3.annotationLabel"
-          },
-          x: 50,
-          y: 150,
-          dy: 137,
-          dx: 162
-        },{
-          note: {
-            label: "Added connector end 'arrow', note wrap '180', and note align 'left'",
-            title: "d3.annotationLabel",
-            wrap: 150,
-            align: "right"
-          },
-          connector: {
-            end: "arrow" // 'dot' also available
-          },
-          x: 170,
-          y: 150,
-          dy: 137,
-          dx: 162
-        },{
-          //below in makeAnnotations has type set to d3.annotationLabel
-          //you can add this type value below to override that default
-          type: d3.annotationCalloutCircle,
-          note: {
-            label: "A different annotation type",
-            title: "d3.annotationCalloutCircle",
-            wrap: 190
-          },
-          //settings for the subject, in this case the circle radius
-          subject: {
-            radius: 50
-          },
-          x: 1280,
-          y: 600,
-          dx: 10,
-          dy: 10
-        }
-      ,{
-          note: {
-            label: "2008 data skewed (not full year)",
+            label: "skewed (not full year)",
             title: "2008 Data",
             wrap: 150,
             align: "right"
           },
           connector: {
-            end: "arrow" // 'dot' also available
+            end: "arrow"
           },
           x: 1280,
           y: 600,
