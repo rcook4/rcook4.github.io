@@ -66,7 +66,17 @@ a:hover {
 <a href="https://rcook4.github.io/subjects.html" class="subject">Subjects</a>
 <a href="https://rcook4.github.io/technologies.html" class="technology">Technologies</a>
 <a href="https://rcook4.github.io/essay.html" class="essay">Essay</a>
-<p>
+<p>This chart contains any trigram which was a top three usage for any given year.
+<p>It is striking that over 2,000 years only six different trigrams crack the top three.
+<p>This gives us confidence that their is a balanced selection of books across the years.
+<p>Had 1800s been about gold, 1900s about earthquakes, 2000s about Hollywood then maybe all the books were from California.
+<p>The y-axis is loosely based on the percentage of books the trigram appeared in that year.
+<p>The table is case-sensative so aggregating all case spellings results in higher than 1 values.
+<p>For example, imagine there is only ten books from 1800 and only one contains the word "history".
+<p>If the book has only the sentence "History of the world is written about more than history of the universe.".
+<p>Then the trigram "History of the" appears in ten percent of books and so does "history of the".
+<p>Which would aggregate to show in the chart as -history of the- with usage of 0.2.
+<p>This can safely be ignored as it is true of all trigrams and we are analizing trend not finding a percentage.
 <div id="LineChart"></div>
 <script>
   var tcsv = new dex.csv({
