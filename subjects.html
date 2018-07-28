@@ -339,6 +339,19 @@ a:hover {
           y: 150,
           dy: 137,
           dx: 102
+        }
+      ,{
+          note: {
+            label: "Data for 2008 is skewed as it was not for the complete year",
+            title: "d3.annotationLabel",
+            wrap: 150,
+            align: "left"
+          },
+          connector: {
+            end: "arrow" // 'dot' also available
+          },
+          x: "right",
+          y: "bottom",
         }].map(function(d){ d.color = "#E8336D"; return d})
 
         const makeAnnotations = d3.annotation()
