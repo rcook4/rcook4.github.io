@@ -280,6 +280,9 @@ a:hover {
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
     <script>
+        yearScale = d3.scaleTime()
+          .domain([new Date(1808, 0, 1), new Date(2008, 0, 1)])
+          .range([0, 200]);
       const annotations = [
         {
           note: {
@@ -332,11 +335,8 @@ a:hover {
           connector: {
             end: "arrow" // 'dot' also available
           },
-          x: 900,
-          y: 450,
-          dx: 10,
-          dy: 10
-        }].map(function(d){ d.color = "#464646"; return d})
+          data: { x: "2000-01-01", y: 10}
+      }].map(function(d){ d.color = "#464646"; return d})
 
         const makeAnnotations = d3.annotation()
           .type(d3.annotationLabel)
