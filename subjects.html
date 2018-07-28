@@ -321,8 +321,6 @@ a:hover {
           },
           x: 1280,
           y: 600,
-          dy: 1,
-          dx: 1
         }
       ,{
           note: {
@@ -334,8 +332,7 @@ a:hover {
           connector: {
             end: "arrow" // 'dot' also available
           },
-          x: "2000-01-01",
-          y: "bottom"
+          data: { year: "2000-01-01" }
         }].map(function(d){ d.color = "#464646"; return d})
 
         const makeAnnotations = d3.annotation()
