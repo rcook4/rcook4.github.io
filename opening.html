@@ -39,11 +39,11 @@ a:hover {
 <a href="https://rcook4.github.io/subjects.html" class="subject">Subjects</a>
 <a href="https://rcook4.github.io/technologies.html" class="technology">Technologies</a>
 <a href="https://rcook4.github.io/essay.html" class="essay">Essay</a>
-<p>A <a href="https://en.wikipedia.org/wiki/N-gram" style="background-color: white; color: blue;display: auto;hover: none;padding: none">n-gram</a> is n-length series of terms from a text source.
+<p>A <a href="https://en.wikipedia.org/wiki/N-gram" style="background-color: white; color: blue;display: auto;hover: none;padding: 0px 0px;">n-gram</a> is n-length series of terms from a text source.
 <p><a href="https://books.google.com/ngrams/info"  style="background-color: white; color: blue;">Google Books Ngram Viewer</a> is a frontend query tool to their growing corpus of n-grams from millions of scanned books in multiple languages across several centuries.
 <p>I wanted to determine if that corpus could be used to get a sense of what people were thinking about, by analyzing what people had written about.
 <p>Unfortunately, the entire dataset is multiple petabytes in size and therefore too large to download or host online.
-<p>Fortunately, Google does publicly host backend access to a static subset (English, 3-grams, 1520 to 2008) of the data as a BigQuery sample table <a href="https://cloud.google.com/bigquery/sample-tables"  style="background-color: white; color: blue;">trigrams</a>.
+<p>Fortunately, Google does publicly host backend access to a static subset (English, 3-grams, 1520 to 2008) of the data as a BigQuery sample table <a href="https://cloud.google.com/bigquery/sample-tables"  style="background-color:white;color:blue;display:auto;hover:none;padding:none;">trigrams</a>.
 <p>I decided to use that data knowing I would be giving up some flexibility and therefore accuracy, for the sake of ease and usability.
 <p>The first step was to look for anomalies in the top trigrams.
 <p>The second step was to look for anomalies in the high frequency subjects.
