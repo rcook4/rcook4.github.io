@@ -163,12 +163,12 @@
       .style("text-anchor", "end")
       .text("growth");
 
-    var city = svg.selectAll(".city")
+    var company = svg.selectAll(".company")
       .data(cities)
       .enter().append("g")
-      .attr("class", "city");
+      .attr("class", "company");
 
-    city.append("path")
+    company.append("path")
       .attr("class", "line")
       .attr("d", function(d) {
         return line(d.values);
@@ -177,7 +177,7 @@
         return color(d.name);
       });
 
-    city.append("text")
+    company.append("text")
       .datum(function(d) {
         return {
           name: d.name,
@@ -200,7 +200,7 @@
       .attr("class", "mouse-line")
       .style("stroke", "black")
       .style("stroke-width", "1px")
-      .style("opacity", "0");
+      .style("opacompany", "0");
       
     var lines = document.getElementsByClassName('line');
 
@@ -217,7 +217,7 @@
       })
       .style("fill", "none")
       .style("stroke-width", "1px")
-      .style("opacity", "0");
+      .style("opacompany", "0");
 
     mousePerLine.append("text")
       .attr("transform", "translate(10,3)");
@@ -229,19 +229,19 @@
       .attr('pointer-events', 'all')
       .on('mouseout', function() { // on mouse out hide line, circles and text
         d3.select(".mouse-line")
-          .style("opacity", "0");
+          .style("opacompany", "0");
         d3.selectAll(".mouse-per-line circle")
-          .style("opacity", "0");
+          .style("opacompany", "0");
         d3.selectAll(".mouse-per-line text")
-          .style("opacity", "0");
+          .style("opacompany", "0");
       })
       .on('mouseover', function() { // on mouse in show line, circles and text
         d3.select(".mouse-line")
-          .style("opacity", "1");
+          .style("opacompany", "1");
         d3.selectAll(".mouse-per-line circle")
-          .style("opacity", "1");
+          .style("opacompany", "1");
         d3.selectAll(".mouse-per-line text")
-          .style("opacity", "1");
+          .style("opacompany", "1");
       })
       .on('mousemove', function() { // mouse moving over canvas
         var mouse = d3.mouse(this);
