@@ -74,7 +74,7 @@
         return x(d.date);
       })
       .y(function(d) {
-        return y(d.complaining);
+        return y(d.complaints);
       });
 
     var svg = d3.select("body").append("svg")
@@ -99,7 +99,7 @@
         values: data.map(function(d) {
           return {
             date: d.date,
-            complaining: +d[name]
+            complaints: +d[name]
           };
         })
       };
@@ -110,14 +110,14 @@
     }));
 
     y.domain([
-      d3.min(companies, function(c) {
-        return d3.min(c.values, function(v) {
-          return v.complaining;
-        });
-      }),
       d3.max(companies, function(c) {
         return d3.max(c.values, function(v) {
-          return v.complaining;
+          return v.complaints;
+        });
+      }),
+      d3.min(companies, function(c) {
+        return d3.min(c.values, function(v) {
+          return v.complaints;
         });
       })
     ]);
@@ -185,7 +185,7 @@
         };
       })
       .attr("transform", function(d) {
-        return "translate(" + x(d.value.date) + "," + y(d.value.complaining) + ")";
+        return "translate(" + x(d.value.date) + "," + y(d.value.complaints) + ")";
       })
       .attr("x", 3)
       .attr("dy", ".35em");
