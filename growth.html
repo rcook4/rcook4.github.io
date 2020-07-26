@@ -93,7 +93,7 @@
       d.date = parseDate(d.date);
     });
 
-    var cities = color.domain().map(function(name) {
+    var companies = color.domain().map(function(name) {
       return {
         name: name,
         values: data.map(function(d) {
@@ -110,12 +110,12 @@
     }));
 
     y.domain([
-      d3.min(cities, function(c) {
+      d3.min(companies, function(c) {
         return d3.min(c.values, function(v) {
           return v.growth;
         });
       }),
-      d3.max(cities, function(c) {
+      d3.max(companies, function(c) {
         return d3.max(c.values, function(v) {
           return v.growth;
         });
@@ -123,7 +123,7 @@
     ]);
 
     var legend = svg.selectAll('g')
-      .data(cities)
+      .data(companies)
       .enter()
       .append('g')
       .attr('class', 'legend');
@@ -164,7 +164,7 @@
       .text("growth");
 
     var company = svg.selectAll(".company")
-      .data(cities)
+      .data(companies)
       .enter().append("g")
       .attr("class", "company");
 
@@ -205,7 +205,7 @@
     var lines = document.getElementsByClassName('line');
 
     var mousePerLine = mouseG.selectAll('.mouse-per-line')
-      .data(cities)
+      .data(companies)
       .enter()
       .append("g")
       .attr("class", "mouse-per-line");
