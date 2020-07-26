@@ -110,12 +110,12 @@
     }));
 
     y.domain([
-      d3.min(companies, function(c) {
+      d3.max(companies, function(c) {
         return d3.max(c.values, function(v) {
           return v.ranking;
         });
       }),
-      d3.max(companies, function(c) {
+      d3.min(companies, function(c) {
         return d3.min(c.values, function(v) {
           return v.ranking;
         });
