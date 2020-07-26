@@ -74,7 +74,7 @@
         return x(d.date);
       })
       .y(function(d) {
-        return y(d.growth);
+        return y(d.ranking);
       });
 
     var svg = d3.select("body").append("svg")
@@ -99,7 +99,7 @@
         values: data.map(function(d) {
           return {
             date: d.date,
-            growth: +d[name]
+            ranking: +d[name]
           };
         })
       };
@@ -111,13 +111,13 @@
 
     y.domain([
       d3.min(companies, function(c) {
-        return d3.min(c.values, function(v) {
-          return v.growth;
+        return d3.max(c.values, function(v) {
+          return v.ranking;
         });
       }),
       d3.max(companies, function(c) {
-        return d3.max(c.values, function(v) {
-          return v.growth;
+        return d3.min(c.values, function(v) {
+          return v.ranking;
         });
       })
     ]);
@@ -161,7 +161,7 @@
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Percentage growth since 2009");
+      .text("Ranking amongst all companies");
 
     var company = svg.selectAll(".company")
       .data(companies)
@@ -185,7 +185,7 @@
         };
       })
       .attr("transform", function(d) {
-        return "translate(" + x(d.value.date) + "," + y(d.value.growth) + ")";
+        return "translate(" + x(d.value.date) + "," + y(d.value.ranking) + ")";
       })
       .attr("x", 3)
       .attr("dy", ".35em");
