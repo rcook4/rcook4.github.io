@@ -110,12 +110,12 @@
     }));
 
     y.domain([
-      d3.max(companies, function(c) {
+      d3.min(companies, function(c) {
         return d3.max(c.values, function(v) {
           return v.ranking;
         });
       }),
-      d3.min(companies, function(c) {
+      d3.max(companies, function(c) {
         return d3.min(c.values, function(v) {
           return v.ranking;
         });
@@ -129,7 +129,7 @@
       .attr('class', 'legend');
 
     legend.append('rect')
-      .attr('x', height - 100)
+      .attr('x', 20)
       .attr('y', function(d, i) {
         return i * 20;
       })
