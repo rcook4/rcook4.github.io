@@ -29,6 +29,18 @@
 
 <body>
   <script>
+    var myData = "date	Allstate_Insurance_Company	Allstate_Property_and_Casualty_Insurance_Company	GEICO_General_Insurance_Company	GEICO_Indemnity_Company	Government_Employees_Insurance_Company	Liberty_Mutual_Fire_Insurance_Company	New_York_Central_Mutual_Fire_Insurance_Company	State_Farm_Mutual_Automobile_Insurance_Company\n\
+2009	100	100	100	100	100	100	100	100\n\
+2010	94	125	105	102	102	104	103	106\n\
+2011	89	138	114	106	106	110	107	113\n\
+2012	83	129	128	116	116	115	108	119\n\
+2013	75	105	143	127	127	119	101	125\n\
+2014	68	84	153	137	137	121	88	131\n\
+2015	59	56	179	160	160	134	66	149\n\
+2016	59	56	179	160	160	134	66	149\n\
+2017	56	48	195	169	169	144	57	159\n\
+2018	51	42	209	183	183	156	49	165\n";
+
     var margin = {
         top: 20,
         right: 80,
@@ -38,7 +50,7 @@
       width = 900 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
 
-    var parseDate = d3.time.format("%Y").parse;
+    var parseDate = d3.time.format("%Y%m%d").parse;
 
     var x = d3.time.scale()
       .range([0, width]);
@@ -71,7 +83,7 @@
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    var data = d3.csv("https://raw.githubusercontent.com/rcook4/rcook4.github.io/master/growth.csv")
+    var data = d3.tsv.parse(myData);
 
     color.domain(d3.keys(data[0]).filter(function(key) {
       return key !== "date";
