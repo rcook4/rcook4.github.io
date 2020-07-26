@@ -129,7 +129,7 @@
       .attr('class', 'legend');
 
     legend.append('rect')
-      .attr('x', width - 312)
+      .attr('x', width - 287)
       .attr('y', function(d, i) {
         return i * 12;
       })
@@ -140,7 +140,7 @@
       });
 
     legend.append('text')
-      .attr('x', width - 300)
+      .attr('x', width - 275)
       .attr('y', function(d, i) {
         return (i * 12) + 9;
       })
@@ -161,7 +161,7 @@
       .attr("y", -40)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Complaints filed");
+      .text("Number of complaints filed");
 
     var company = svg.selectAll(".company")
       .data(companies)
