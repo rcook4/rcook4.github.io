@@ -29,8 +29,6 @@
 
 <body>
   <script>
-    var myData = d3.csv("https://raw.githubusercontent.com/rcook4/rcook4.github.io/master/growth.csv")
-
     var margin = {
         top: 20,
         right: 80,
@@ -73,7 +71,7 @@
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    var data = d3.tsv.parse(myData);
+    var data = d3.csv("https://raw.githubusercontent.com/rcook4/rcook4.github.io/master/growth.csv")
 
     color.domain(d3.keys(data[0]).filter(function(key) {
       return key !== "date";
