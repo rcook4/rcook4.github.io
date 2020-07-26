@@ -30,7 +30,7 @@ d3.csv("https://raw.githubusercontent.com/rcook4/rcook4.github.io/master/data.cs
 
   // When reading the csv, I must format variables:
   function(d){
-    return { date : d3.timeParse("%Y")(d.YEAR), value : d.COMPANY }
+    return { date : d3.timeParse("%Y")(d.YEAR), value : d.GROWTH }
   },
 
   // Now I can use this dataset:
