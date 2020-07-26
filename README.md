@@ -26,3 +26,20 @@ What are the parameters of the narrative visualization? What are the states of t
 
 ## Triggers
 What are the triggers that connect user actions to changes of state in the narrative visualization? What affordances are provided to the user to communicate to them what options are available to them in the narrative visualization?
+
+
+
+https://data.ny.gov/Government-Finance/Automobile-Insurance-Company-Complaint-Rankings-Be/h2wd-9xfe
+
+Preimums reported for all nine years and where values were greater than $200M 
+
+Allstate Insurance Company
+Allstate Property and Casualty Insurance Company
+GEICO General Insurance Company
+GEICO Indemnity Company
+Government Employees Insurance Company
+Liberty Mutual Fire Insurance Company
+New York Central Mutual Fire Insurance Company
+State Farm Mutual Automobile Insurance Company
+
+
