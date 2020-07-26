@@ -129,7 +129,7 @@
       .attr('class', 'legend');
 
     legend.append('rect')
-      .attr('x', width - 212)
+      .attr('x', width - 312)
       .attr('y', function(d, i) {
         return i * 12;
       })
@@ -140,7 +140,7 @@
       });
 
     legend.append('text')
-      .attr('x', width - 200)
+      .attr('x', width - 300)
       .attr('y', function(d, i) {
         return (i * 12) + 9;
       })
@@ -158,7 +158,7 @@
       .call(yAxis)
       .append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", -16)
+      .attr("y", -40)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
       .text("Ranking amongst all companies");
