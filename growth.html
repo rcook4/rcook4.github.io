@@ -74,7 +74,7 @@
         return x(d.date);
       })
       .y(function(d) {
-        return y(d.temperature);
+        return y(d.growth);
       });
 
     var svg = d3.select("body").append("svg")
@@ -99,7 +99,7 @@
         values: data.map(function(d) {
           return {
             date: d.date,
-            temperature: +d[name]
+            growth: +d[name]
           };
         })
       };
@@ -112,12 +112,12 @@
     y.domain([
       d3.min(cities, function(c) {
         return d3.min(c.values, function(v) {
-          return v.temperature;
+          return v.growth;
         });
       }),
       d3.max(cities, function(c) {
         return d3.max(c.values, function(v) {
-          return v.temperature;
+          return v.growth;
         });
       })
     ]);
@@ -161,7 +161,7 @@
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Temperature (ºF)");
+      .text("growth");
 
     var city = svg.selectAll(".city")
       .data(cities)
@@ -185,7 +185,7 @@
         };
       })
       .attr("transform", function(d) {
-        return "translate(" + x(d.value.date) + "," + y(d.value.temperature) + ")";
+        return "translate(" + x(d.value.date) + "," + y(d.value.growth) + ")";
       })
       .attr("x", 3)
       .attr("dy", ".35em")
