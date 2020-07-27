@@ -131,7 +131,7 @@
     legend.append('rect')
       .attr('x', width - 287)
       .attr('y', function(d, i) {
-        return (i * 12) + 263;
+        return (i * 12) + 350;
       })
       .attr('width', 10)
       .attr('height', 10)
@@ -140,9 +140,9 @@
       });
 
     legend.append('text')
-      .attr('x', width - 250)
+      .attr('x', width - 275)
       .attr('y', function(d, i) {
-        return (i * 12) + 275;
+        return (i * 12) + 359;
       })
       .text(function(d) {
         return d.name;
@@ -277,7 +277,6 @@
             return "translate(" + mouse[0] + "," + pos.y +")";
           });
       });
-
 	const line_annotations = [
 	{
 		type: d3.annotationLabel,
