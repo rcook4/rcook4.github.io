@@ -129,9 +129,9 @@
       .attr('class', 'legend');
 
     legend.append('rect')
-      .attr('x', width - 262)
+      .attr('x', width - 287)
       .attr('y', function(d, i) {
-        return (i * 12) + 350;
+        return (i * 12) + 300;
       })
       .attr('width', 10)
       .attr('height', 10)
@@ -140,9 +140,9 @@
       });
 
     legend.append('text')
-      .attr('x', width - 250)
+      .attr('x', width - 275)
       .attr('y', function(d, i) {
-        return (i * 12) + 359;
+        return (i * 12) + 309;
       })
       .text(function(d) {
         return d.name;
@@ -277,7 +277,42 @@
             return "translate(" + mouse[0] + "," + pos.y +")";
           });
       });
-      
+
+	const line_annotations = [
+	{
+		type: d3.annotationLabel,
+		note: {
+		title: "Weeknight Checkin Spike",
+		label: "Spikes nightly for checkins",
+		wrap: 190
+		},
+		x: 250,
+		y: 125,
+		dy: 0,
+		dx: 0
+	},          
+	{
+		type: d3.annotationLabel,
+		note: {
+		title: "Weekend Checkin Spike",
+		label: "Increased spike of checkins over the weekend",
+		wrap: 190
+		},
+		x: 650,
+		y: 200,
+		dy: -100,
+		dx: -150
+	}]
+
+	const line_makeAnnotations = d3.annotation()
+		.type(d3.annotationLabel)
+		.annotations(line_annotations)
+
+	d3.select("#linechart_svg")
+		.append("g")
+		.attr("class", "annotation-group")
+		.attr("id", "linechart_annotation")
+		.call(line_makeAnnotations)
   </script>
 </body>
 
