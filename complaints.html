@@ -2,8 +2,8 @@
 <html>
 
 <head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.js"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js"></script>
   <!-- <script src="https://d3js.org/d3.v4.js"></script> -->
   <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
   <style>
@@ -325,23 +325,11 @@
           });
       });
 
-      const annotations = [
-        {
-          note: {
-            label: "Basic settings with subject position(x,y) and a note offset(dx, dy)",
-            title: "d3.annotationLabel"
-          },
-          x: 50,
-          y: 150,
-          dy: 137,
-          dx: 162
-        }].map(function(d){ d.color = "#E8336D"; return d})
+      //const annotations = [{note: {label: "Basic settings with subject position(x,y) and a note offset(dx, dy)",title: "d3.annotationLabel"},x: 50,y: 150,dy: 137,dx: 162}].map(function(d){ d.color = "#E8336D"; return d})
 
-        const makeAnnotations = d3.annotation()
-          .type(d3.annotationLabel)
-          .annotations(annotations)
+      //const makeAnnotations = d3.annotation().type(d3.annotationLabel).annotations(annotations)
 
-       //svg.append("g").attr("class", "annotation-group").call(makeAnnotations)
+      //svg.append("g").attr("class", "annotation-group").call(makeAnnotations)
 
   </script>
 </body>
