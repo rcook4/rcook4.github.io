@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+  <script data-require="d3@3.5.3" data-semver="3.5.3" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.js"></script>
+  <style>
+    body {
+      font: 10px sans-serif;
+    }
+    
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+    
+    .x.axis path {
+      display: none;
+    }
+    
+    .line {
+      fill: none;
+      stroke: steelblue;
+      stroke-width: 1.5px;
+    }
 <style>
 a {
     text-decoration: none;
@@ -15,42 +38,31 @@ a:hover {
     background-color: #f1f1f1;
     color: black;
 }
-.essay {
+.growth {
     background-color: #f1f1f1;
     color: black;
 }
-.trigram {
+.rank {
     background-color: #f1f1f1;
     color: black;
 }
-.subject {
-    background-color: #f1f1f1;
-    color: black;
-}
-.technology {
+.complaints {
     background-color: #f1f1f1;
     color: black;
 }
 </style>
 </head>
+
 <body>
-<a href="https://rcook4.github.io/opening.html" class="opening">Opening</a>
-<a href="https://rcook4.github.io/trigrams.html" class="trigram">Trigrams</a>
-<a href="https://rcook4.github.io/subjects.html" class="subject">Subjects</a>
-<a href="https://rcook4.github.io/technologies.html" class="technology">Technologies</a>
-<a href="https://rcook4.github.io/essay.html" class="essay">Essay</a>
-<p>A <a href="https://en.wikipedia.org/wiki/N-gram" style="background-color:white;color:blue;display:auto;hover:none;padding:0px 0px;">n-gram</a> is a n-length series of terms from a text source.
-<p><a href="https://books.google.com/ngrams/info" style="background-color:white;color:blue;display:auto;hover:none;padding:0px 0px;">Google Books Ngram Viewer</a> is a frontend query tool to their growing corpus of n-grams from millions of scanned books in multiple languages across several centuries.
-<p>I wanted to determine if that corpus could be used to understand the lives of people by analyzing the written word of people.
-<p>Unfortunately, the entire dataset is multiple petabytes in size and therefore too large to download or host online.
-<p>Fortunately, Google does publicly host backend access to a static subset (English, 3-grams, 1520 to 2008) of the data as a BigQuery sample table <a href="https://cloud.google.com/bigquery/sample-tables" style="background-color:white;color:blue;display:auto;hover:none;padding:0px 0px;">Trigrams</a>.
-<p>I decided to use that data knowing I would be giving up some flexibility and therefore accuracy, for the sake of ease and usability.
-<p>The first step was to look for anomalies in top trigrams.
-<p>The second step was to look for anomalies in popular subjects.
-<p>The final step was to look for anomalies in a specific group of words, in this case technologies.
-<p>
-<form action="https://rcook4.github.io/essay.html">
-<input type="submit" value="About the Visualization"/>
-</form>
+  <a href="https://rcook4.github.io/opening.html" class="opening">Opening</a>
+  <a href="https://rcook4.github.io/growth.html" class="trigram">Growth</a>
+  <a href="https://rcook4.github.io/rank.html" class="subject">Rank</a>
+  <a href="https://rcook4.github.io/complaints.html" class="technology">Complaints</a>
+
+  <p>A <a href="https://en.wikipedia.org/wiki/N-gram" style="background-color:white;color:blue;display:auto;hover:none;padding:0px 0px;">n-gram</a> is a n-length series of terms from a text source.
+  <p>
+  <form action="https://rcook4.github.io/growth.html">
+    <input type="submit" value="Next"/>
+  </form>
 </body>
 </html>
