@@ -59,8 +59,10 @@
   <a href="https://rcook4.github.io/complaints.html" class="complaints">Complaints</a>
 
   <h1>Rank</h1>
+  <h2>Data</h2>
   <p>A <a href="https://en.wikipedia.org/wiki/N-gram" style="background-color:white;color:blue;display:auto;hover:none;padding:0px 0px;">n-gram</a> is a n-length series of terms from a text source.
   <p>
+  <div id="linechart"></div>
   <script>
     var myData = "date	Allstate_Insurance_Company	Allstate_Property_and_Casualty_Insurance_Company	GEICO_General_Insurance_Company	GEICO_Indemnity_Company	Government_Employees_Insurance_Company	Liberty_Mutual_Fire_Insurance_Company	New_York_Central_Mutual_Fire_Insurance_Company	State_Farm_Mutual_Automobile_Insurance_Company\n\
 2009	119	88	68	71	71	69	86	94\n\
@@ -110,7 +112,7 @@
         return y(d.ranking);
       });
 
-    var svg = d3.select("body").append("svg")
+    var svg = d3.select("linechart").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
