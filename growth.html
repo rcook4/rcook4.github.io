@@ -357,7 +357,11 @@ svg.append("text")
 
 
 
-d3.select("#linechart button").on("click", function(){annotate = !annotate;svg.select("#warning").remove();})
+d3.select("#linechart button").on("click", function(){
+	annotate = !annotate;svg.select("#warning").remove();
+	}
+);
+
 var getQueryString = function ( field, url ) {
 	var href = url ? url : window.location.href;
 	var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
