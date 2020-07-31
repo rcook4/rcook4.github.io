@@ -30,3 +30,4 @@ There exists a Next button which triggers transition to the subquent scene. Addi
 # Resources
 https://data.ny.gov/Government-Finance/Automobile-Insurance-Company-Complaint-Rankings-Be/h2wd-9xfe
 https://bl.ocks.org/larsenmtl/e3b8b7c2ca4787f77d78f58d41c3da91
+https://www.d3-graph-gallery.com/graph/custom_annotation.html

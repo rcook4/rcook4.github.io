@@ -2,7 +2,8 @@
 <html>
 
 <head>
-  <script data-require="d3@3.5.3" data-semver="3.5.3" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.js"></script>
+  <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
   <style>
     body {
       font: 10px sans-serif;
@@ -321,41 +322,24 @@
             return "translate(" + mouse[0] + "," + pos.y +")";
           });
       });
-	const line_annotations = [
-	{
-		type: d3.annotationLabel,
-		note: {
-		title: "Weeknight Checkin Spike",
-		label: "Spikes nightly for checkins",
-		wrap: 190
-		},
-		x: 250,
-		y: 125,
-		dy: 0,
-		dx: 0
-	},          
-	{
-		type: d3.annotationLabel,
-		note: {
-		title: "Weekend Checkin Spike",
-		label: "Increased spike of checkins over the weekend",
-		wrap: 190
-		},
-		x: 650,
-		y: 200,
-		dy: -100,
-		dx: -150
-	}]
+      const annotations = [
+        {
+          note: {
+            label: "Here is the annotation label",
+            title: "Annotation title"
+          },
+          x: 100,
+          y: 100,
+          dy: 100,
+          dx: 100
+        }
+      ]
 
-	const line_makeAnnotations = d3.annotation()
-		.type(d3.annotationLabel)
-		.annotations(line_annotations)
-
-	d3.select("#linechart_svg")
-		.append("g")
-		.attr("class", "annotation-group")
-		.attr("id", "linechart_annotation")
-		.call(line_makeAnnotations)
+      const makeAnnotations = d3.annotation()
+        .annotations(annotations)
+      d3.select("#linechart")
+        .append("g")
+        .call(makeAnnotations)
   </script>
 </body>
 
