@@ -345,13 +345,18 @@ svg.append("g")
   .attr("fill", "#000")
   .text("Percent growth since 2009");
 
+var annotate = true;
+
 svg.append("text")
   .style("fill", "red")
   .style("font-size", "10px")
   .attr("x", 450)
   .attr("y", 440)
-  .text("Suspicious data: 2015 identical to 2016");
+  .text(annotate); //"Suspicious data: 2015 identical to 2016");
 
+
+
+d3.select("#scatterplot button").on("click", function(){
 var getQueryString = function ( field, url ) {
 	var href = url ? url : window.location.href;
 	var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
