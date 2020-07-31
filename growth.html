@@ -354,10 +354,11 @@ function appendAnnotation() {
     .attr("x", 450)
     .attr("y", 440)
     .attr("id", "warning")
-    .text(window.location.href); //"Suspicious data: 2015 identical to 2016");
+    .text(annotate); //"Suspicious data: 2015 identical to 2016");
 }
 
-appendAnnotation();
+if (window.location.href.includes("annotate=true")
+	appendAnnotation();
 
 d3.select("#linechart button").on("click", function()
   {
