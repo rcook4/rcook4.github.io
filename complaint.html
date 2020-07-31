@@ -153,7 +153,7 @@ var xScale = d3.scaleTime()
 
 var yScale = d3.scaleLinear()
   .domain([d3.max(data[0].values, d => d.value), d3.min(data[0].values, d => d.value)])
-  .range([0, height-margin]);
+  .range([height-margin, 0]);
 
 var color = d3.scaleOrdinal(d3.schemeCategory10);
 
