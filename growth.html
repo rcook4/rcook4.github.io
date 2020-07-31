@@ -360,9 +360,11 @@ function appendAnnotation() {
 
 d3.select("#linechart button").on("click", function()
   {
-    appendAnnotation()
-	svg.select("#warning").remove();
-	annotate = !annotate;
+    annotate = !annotate;
+    if (annotate)
+      appendAnnotation();
+	else
+	  svg.select("#warning").remove();
   }
 );
 
