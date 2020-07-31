@@ -28,6 +28,6 @@ There is a parameter for annotation visiblilty which controls both the inital an
 There exists a Next button which triggers transition to the subquent scene. Additionally a navigation menu exists above all scenes which allows for triggering transition to any selected scene.
 
 # Resources
-https://data.ny.gov/Government-Finance/Automobile-Insurance-Company-Complaint-Rankings-Be/h2wd-9xfe
-https://bl.ocks.org/larsenmtl/e3b8b7c2ca4787f77d78f58d41c3da91
-https://www.d3-graph-gallery.com/graph/custom_annotation.html
+* https://data.ny.gov/Government-Finance/Automobile-Insurance-Company-Complaint-Rankings-Be/h2wd-9xfe
+* https://bl.ocks.org/larsenmtl/e3b8b7c2ca4787f77d78f58d41c3da91
+* https://bl.ocks.org/susielu/625aa4814098671290a8c6bb88a6301e
