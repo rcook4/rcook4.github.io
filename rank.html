@@ -226,7 +226,7 @@ var xScale = d3.scaleTime()
   .range([0, width-margin]);
 
 var yScale = d3.scaleLinear()
-  .domain([60, d3.max(data[0].values, d => d.value)])
+  .domain([50, 150])
   .range([0, height-margin]);
 
 var color = d3.scaleOrdinal(d3.schemeCategory10);
