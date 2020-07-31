@@ -2,29 +2,32 @@
 <html>
 
 <head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.js"></script>
-  <script src="https://cdn.rawgit.com/susielu/d3-annotation/75ff6169/d3-annotation.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
   <style>
     body {
-      font: 10px sans-serif;
+      font: 12px sans-serif;
     }
     
-    .axis path,
-    .axis line {
-      fill: none;
-      stroke: #000;
-      shape-rendering: crispEdges;
+    svg {
+        font-family: Sans-Serif, Arial;
     }
-    
-    .x.axis path {
-      display: none;
-    }
-    
     .line {
+      stroke-width: 2;
       fill: none;
-      stroke: steelblue;
-      stroke-width: 1.5px;
     }
+
+    .axis path {
+      stroke: black;
+    }
+
+    .text {
+      font-size: 12px;
+    }
+
+    .title-text {
+      font-size: 14px;
+    }
+
     a {
         text-decoration: none;
         display: inline-block;
@@ -70,254 +73,278 @@
     <input type="submit" value="Next"/>
   </form>
   <script>
-    var myData = "date	Allstate_Insurance_Company	Allstate_Property_and_Casualty_Insurance_Company	GEICO_General_Insurance_Company	GEICO_Indemnity_Company	Government_Employees_Insurance_Company	Liberty_Mutual_Fire_Insurance_Company	New_York_Central_Mutual_Fire_Insurance_Company	State_Farm_Mutual_Automobile_Insurance_Company\n\
-2010	94	125	105	102	102	104	103	106\n\
-2011	89	138	114	106	106	110	107	113\n\
-2012	83	129	128	116	116	115	108	119\n\
-2013	75	105	143	127	127	119	101	125\n\
-2014	68	84	153	137	137	121	88	131\n\
-2015	59	56	179	160	160	134	66	149\n\
-2016	59	56	179	160	160	134	66	149\n\
-2017	56	48	195	169	169	144	57	159\n\
-2018	51	42	209	183	183	156	49	165\n";
+var data = [
+  {
+    name: "Allstate_Insurance_Company",
+    values: [
+      {date: "2010", value: "94"},
+      {date: "2011", value: "89"},
+      {date: "2012", value: "83"},
+      {date: "2013", value: "75"},
+      {date: "2014", value: "68"},
+      {date: "2015", value: "59"},
+      {date: "2016", value: "59"},
+      {date: "2017", value: "56"},
+      {date: "2018", value: "51"}
+    ]
+  },
+  {
+    name: "Allstate_Property_and_Casualty_Insurance_Company",
+    values: [
+      {date: "2010", value: "125"},
+      {date: "2011", value: "138"},
+      {date: "2012", value: "129"},
+      {date: "2013", value: "105"},
+      {date: "2014", value: "84"},
+      {date: "2015", value: "56"},
+      {date: "2016", value: "56"},
+      {date: "2017", value: "48"},
+      {date: "2018", value: "42"}
+    ]
+  },
+  {
+    name: "GEICO_General_Insurance_Company",
+    values: [
+      {date: "2010", value: "105"},
+      {date: "2011", value: "114"},
+      {date: "2012", value: "128"},
+      {date: "2013", value: "143"},
+      {date: "2014", value: "153"},
+      {date: "2015", value: "179"},
+      {date: "2016", value: "179"},
+      {date: "2017", value: "195"},
+      {date: "2018", value: "209"}
+    ]
+  },
+  {
+    name: "GEICO_Indemnity_Company",
+    values: [
+      {date: "2010", value: "102"},
+      {date: "2011", value: "106"},
+      {date: "2012", value: "116"},
+      {date: "2013", value: "127"},
+      {date: "2014", value: "137"},
+      {date: "2015", value: "160"},
+      {date: "2016", value: "160"},
+      {date: "2017", value: "169"},
+      {date: "2018", value: "183"}
+    ]
+  },
+  {
+    name: "Government_Employees_Insurance_Company",
+    values: [
+      {date: "2010", value: "102"},
+      {date: "2011", value: "106"},
+      {date: "2012", value: "116"},
+      {date: "2013", value: "127"},
+      {date: "2014", value: "137"},
+      {date: "2015", value: "160"},
+      {date: "2016", value: "160"},
+      {date: "2017", value: "169"},
+      {date: "2018", value: "183"}
+    ]
+  },
+  {
+    name: "Liberty_Mutual_Fire_Insurance_Company",
+    values: [
+      {date: "2010", value: "104"},
+      {date: "2011", value: "110"},
+      {date: "2012", value: "115"},
+      {date: "2013", value: "119"},
+      {date: "2014", value: "121"},
+      {date: "2015", value: "134"},
+      {date: "2016", value: "134"},
+      {date: "2017", value: "144"},
+      {date: "2018", value: "156"}
+    ]
+  },
+  {
+    name: "New_York_Central_Mutual_Fire_Insurance_Company",
+    values: [
+      {date: "2010", value: "103"},
+      {date: "2011", value: "107"},
+      {date: "2012", value: "108"},
+      {date: "2013", value: "101"},
+      {date: "2014", value: "66"},
+      {date: "2015", value: "56"},
+      {date: "2016", value: "66"},
+      {date: "2017", value: "57"},
+      {date: "2018", value: "49"}
+    ]
+  },
+  {
+    name: "State_Farm_Mutual_Automobile_Insurance_Company",
+    values: [
+      {date: "2010", value: "106"},
+      {date: "2011", value: "113"},
+      {date: "2012", value: "119"},
+      {date: "2013", value: "125"},
+      {date: "2014", value: "131"},
+      {date: "2015", value: "149"},
+      {date: "2016", value: "149"},
+      {date: "2017", value: "159"},
+      {date: "2018", value: "165"}
+    ]
+  }
+];
 
-    var margin = {
-        top: 20,
-        right: 80,
-        bottom: 30,
-        left: 50
-      },
-      width = 900 - margin.left - margin.right,
-      height = 500 - margin.top - margin.bottom;
+var width = 900;
+var height = 500;
+var margin = 50;
+var duration = 250;
 
-    var parseDate = d3.time.format("%Y").parse;
+var lineOpacity = "0.5";
+var lineOpacityHover = "0.9";
+var otherLinesOpacityHover = "0.1";
+var lineStroke = "3px";
+var lineStrokeHover = "5px";
 
-    var x = d3.time.scale()
-      .range([0, width]);
+var circleOpacity = '0.9';
+var circleOpacityOnLineHover = "0.5"
+var circleRadius = 3;
+var circleRadiusHover = 7;
 
-    var y = d3.scale.linear()
-      .range([height, 0]);
 
-    var color = d3.scale.category10();
+/* Format Data */
+var parseDate = d3.timeParse("%Y");
+data.forEach(function(d) { 
+  d.values.forEach(function(d) {
+    d.date = parseDate(d.date);
+    d.value = +d.value;    
+  });
+});
 
-    var xAxis = d3.svg.axis()
-      .scale(x)
-      .orient("bottom");
 
-    var yAxis = d3.svg.axis()
-      .scale(y)
-      .orient("left");
+/* Scale */
+var xScale = d3.scaleTime()
+  .domain(d3.extent(data[0].values, d => d.date))
+  .range([0, width-margin]);
 
-    var line = d3.svg.line()
-      .interpolate("basis")
-      .x(function(d) {
-        return x(d.date);
-      })
-      .y(function(d) {
-        return y(d.growth);
-      });
+var yScale = d3.scaleLinear()
+  .domain([0, d3.max(data[0].values, d => d.value)])
+  .range([height-margin, 0]);
 
-    var svg = d3.select("#linechart").append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+var color = d3.scaleOrdinal(d3.schemeCategory10);
 
-    var data = d3.tsv.parse(myData);
+/* Add SVG */
+var svg = d3.select("#linechart").append("svg")
+  .attr("width", (width+margin)+"px")
+  .attr("height", (height+margin)+"px")
+  .append('g')
+  .attr("transform", `translate(${margin}, ${margin})`);
 
-    color.domain(d3.keys(data[0]).filter(function(key) {
-      return key !== "date";
-    }));
 
-    data.forEach(function(d) {
-      d.date = parseDate(d.date);
+/* Add line into SVG */
+var line = d3.line()
+  .x(d => xScale(d.date))
+  .y(d => yScale(d.value));
+
+let lines = svg.append('g')
+  .attr('class', 'lines');
+
+lines.selectAll('.line-group')
+  .data(data).enter()
+  .append('g')
+  .attr('class', 'line-group')  
+  .on("mouseover", function(d, i) {
+      svg.append("text")
+        .attr("class", "title-text")
+        .style("fill", color(i))        
+        .text(d.name)
+        .attr("text-anchor", "middle")
+        .attr("x", (width-margin)/2)
+        .attr("y", 5);
+    })
+  .on("mouseout", function(d) {
+      svg.select(".title-text").remove();
+    })
+  .append('path')
+  .attr('class', 'line')  
+  .attr('d', d => line(d.values))
+  .style('stroke', (d, i) => color(i))
+  .style('opacity', lineOpacity)
+  .on("mouseover", function(d) {
+      d3.selectAll('.line')
+					.style('opacity', otherLinesOpacityHover);
+      d3.selectAll('.circle')
+					.style('opacity', circleOpacityOnLineHover);
+      d3.select(this)
+        .style('opacity', lineOpacityHover)
+        .style("stroke-width", lineStrokeHover)
+        .style("cursor", "pointer");
+    })
+  .on("mouseout", function(d) {
+      d3.selectAll(".line")
+					.style('opacity', lineOpacity);
+      d3.selectAll('.circle')
+					.style('opacity', circleOpacity);
+      d3.select(this)
+        .style("stroke-width", lineStroke)
+        .style("cursor", "none");
     });
 
-    var companies = color.domain().map(function(name) {
-      return {
-        name: name,
-        values: data.map(function(d) {
-          return {
-            date: d.date,
-            growth: +d[name]
-          };
-        })
-      };
-    });
 
-    x.domain(d3.extent(data, function(d) {
-      return d.date;
-    }));
-
-    y.domain([
-      d3.min(companies, function(c) {
-        return d3.min(c.values, function(v) {
-          return v.growth;
-        });
-      }),
-      d3.max(companies, function(c) {
-        return d3.max(c.values, function(v) {
-          return v.growth;
-        });
+/* Add circles in the line */
+lines.selectAll("circle-group")
+  .data(data).enter()
+  .append("g")
+  .style("fill", (d, i) => color(i))
+  .selectAll("circle")
+  .data(d => d.values).enter()
+  .append("g")
+  .attr("class", "circle")  
+  .on("mouseover", function(d) {
+      d3.select(this)     
+        .style("cursor", "pointer")
+        .append("text")
+        .attr("class", "text")
+        .text(`${d.value}`)
+        .attr("x", d => xScale(d.date) + 5)
+        .attr("y", d => yScale(d.value) - 10);
+    })
+  .on("mouseout", function(d) {
+      d3.select(this)
+        .style("cursor", "none")  
+        .transition()
+        .duration(duration)
+        .selectAll(".text").remove();
+    })
+  .append("circle")
+  .attr("cx", d => xScale(d.date))
+  .attr("cy", d => yScale(d.value))
+  .attr("r", circleRadius)
+  .style('opacity', circleOpacity)
+  .on("mouseover", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadiusHover);
       })
-    ]);
-
-    var legend = svg.selectAll('g')
-      .data(companies)
-      .enter()
-      .append('g')
-      .attr('class', 'legend');
-
-    legend.append('rect')
-      .attr('x', 40)
-      .attr('y', function(d, i) {
-        return i * 12;
-      })
-      .attr('width', 10)
-      .attr('height', 10)
-      .style('fill', function(d) {
-        return color(d.name);
+    .on("mouseout", function(d) {
+        d3.select(this) 
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadius);  
       });
 
-    legend.append('text')
-      .attr('x', 52)
-      .attr('y', function(d, i) {
-        return (i * 12) + 9;
-      })
-      .text(function(d) {
-        return d.name;
-      });
 
-    svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
+/* Add Axis into SVG */
+var xAxis = d3.axisBottom(xScale).ticks(5);
+var yAxis = d3.axisLeft(yScale).ticks(5);
 
-    svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-      .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", -40)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("Percentage growth since 2009");
+svg.append("g")
+  .attr("class", "x axis")
+  .attr("transform", `translate(0, ${height-margin})`)
+  .call(xAxis);
 
-    var company = svg.selectAll(".company")
-      .data(companies)
-      .enter().append("g")
-      .attr("class", "company");
-
-    company.append("path")
-      .attr("class", "line")
-      .attr("d", function(d) {
-        return line(d.values);
-      })
-      .style("stroke", function(d) {
-        return color(d.name);
-      });
-
-    company.append("text")
-      .datum(function(d) {
-        return {
-          name: d.name,
-          value: d.values[d.values.length - 1]
-        };
-      })
-      .attr("transform", function(d) {
-        return "translate(" + x(d.value.date) + "," + y(d.value.growth) + ")";
-      })
-      .attr("x", 3)
-      .attr("dy", ".35em");
-
-    var mouseG = svg.append("g")
-      .attr("class", "mouse-over-effects");
-
-    mouseG.append("path") // this is the black vertical line to follow mouse
-      .attr("class", "mouse-line")
-      .style("stroke", "black")
-      .style("stroke-width", "1px")
-      .style("opacompany", "0");
-      
-    var lines = document.getElementsByClassName('line');
-
-    var mousePerLine = mouseG.selectAll('.mouse-per-line')
-      .data(companies)
-      .enter()
-      .append("g")
-      .attr("class", "mouse-per-line");
-
-    mousePerLine.append("circle")
-      .attr("r", 7)
-      .style("stroke", function(d) {
-        return color(d.name);
-      })
-      .style("fill", "none")
-      .style("stroke-width", "1px")
-      .style("opacompany", "0");
-
-    mousePerLine.append("text")
-      .attr("transform", "translate(10,3)");
-
-    mouseG.append('svg:rect') // append a rect to catch mouse movements on canvas
-      .attr('width', width) // can't catch mouse events on a g element
-      .attr('height', height)
-      .attr('fill', 'none')
-      .attr('pointer-events', 'all')
-      .on('mouseout', function() { // on mouse out hide line, circles and text
-        d3.select(".mouse-line")
-          .style("opacompany", "0");
-        d3.selectAll(".mouse-per-line circle")
-          .style("opacompany", "0");
-        d3.selectAll(".mouse-per-line text")
-          .style("opacompany", "0");
-      })
-      .on('mouseover', function() { // on mouse in show line, circles and text
-        d3.select(".mouse-line")
-          .style("opacompany", "1");
-        d3.selectAll(".mouse-per-line circle")
-          .style("opacompany", "1");
-        d3.selectAll(".mouse-per-line text")
-          .style("opacompany", "1");
-      })
-      .on('mousemove', function() { // mouse moving over canvas
-        var mouse = d3.mouse(this);
-        d3.select(".mouse-line")
-          .attr("d", function() {
-            var d = "M" + mouse[0] + "," + height;
-            d += " " + mouse[0] + "," + 0;
-            return d;
-          });
-
-        d3.selectAll(".mouse-per-line")
-          .attr("transform", function(d, i) {
-            console.log(width/mouse[0])
-            var xDate = x.invert(mouse[0]),
-                bisect = d3.bisector(function(d) { return d.date; }).right;
-                idx = bisect(d.values, xDate);
-            
-            var beginning = 0,
-                end = lines[i].getTotalLength(),
-                target = null;
-
-            while (true){
-              target = Math.floor((beginning + end) / 2);
-              pos = lines[i].getPointAtLength(target);
-              if ((target === end || target === beginning) && pos.x !== mouse[0]) {
-                  break;
-              }
-              if (pos.x > mouse[0])      end = target;
-              else if (pos.x < mouse[0]) beginning = target;
-              else break; //position found
-            }
-            
-            d3.select(this).select('text')
-              .text(y.invert(pos.y).toFixed(2));
-              
-            return "translate(" + mouse[0] + "," + pos.y +")";
-          });
-      });
-      
+svg.append("g")
+  .attr("class", "y axis")
+  .call(yAxis)
+  .append('text')
+  .attr("y", -25)
+  .attr("transform", "rotate(-90)")
+  .attr("fill", "#000")
+  .text("Complaints");
   </script>
 </body>
 
