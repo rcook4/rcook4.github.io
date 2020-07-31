@@ -2,29 +2,32 @@
 <html>
 
 <head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.js"></script>
-  <script src="https://cdn.rawgit.com/susielu/d3-annotation/75ff6169/d3-annotation.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
   <style>
     body {
-      font: 10px sans-serif;
+      font: 12px sans-serif;
     }
     
-    .axis path,
-    .axis line {
-      fill: none;
-      stroke: #000;
-      shape-rendering: crispEdges;
+    svg {
+        font-family: Sans-Serif, Arial;
     }
-    
-    .x.axis path {
-      display: none;
-    }
-    
     .line {
+      stroke-width: 2;
       fill: none;
-      stroke: steelblue;
-      stroke-width: 1.5px;
     }
+
+    .axis path {
+      stroke: black;
+    }
+
+    .text {
+      font-size: 12px;
+    }
+
+    .title-text {
+      font-size: 14px;
+    }
+
     a {
         text-decoration: none;
         display: inline-block;
