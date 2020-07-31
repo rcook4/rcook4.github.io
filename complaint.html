@@ -78,43 +78,43 @@ var data = [
   {
     name: "Allstate_Insurance_Company",
     values: [
-      {date: "2010", price: "1350"},
-      {date: "2011", price: "660"},
-      {date: "2012", price: "616"},
-      {date: "2013", price: "363"},
-      {date: "2014", price: "463"},
-      {date: "2015", price: "237"},
-      {date: "2016", price: "237"},
-      {date: "2017", price: "289"},
-      {date: "2018", price: "194"}
+      {date: "2010", value: "1350"},
+      {date: "2011", value: "660"},
+      {date: "2012", value: "616"},
+      {date: "2013", value: "363"},
+      {date: "2014", value: "463"},
+      {date: "2015", value: "237"},
+      {date: "2016", value: "237"},
+      {date: "2017", value: "289"},
+      {date: "2018", value: "194"}
     ]
   },
   {
     name: "Allstate_Property_and_Casualty_Insurance_Company",
     values: [
-      {date: "2010", price: "167"},
-      {date: "2011", price: "178"},
-      {date: "2012", price: "143"},
-      {date: "2013", price: "88"},
-      {date: "2014", price: "127"},
-      {date: "2015", price: "63"},
-      {date: "2016", price: "63"},
-      {date: "2017", price: "42"},
-      {date: "2018", price: "31"}
+      {date: "2010", value: "167"},
+      {date: "2011", value: "178"},
+      {date: "2012", value: "143"},
+      {date: "2013", value: "88"},
+      {date: "2014", value: "127"},
+      {date: "2015", value: "63"},
+      {date: "2016", value: "63"},
+      {date: "2017", value: "42"},
+      {date: "2018", value: "31"}
     ]
   },
   {
     name: "GEICO_General_Insurance_Company",
     values: [
-      {date: "2010", price: "438"},
-      {date: "2011", price: "430"},
-      {date: "2012", price: "454"},
-      {date: "2013", price: "491"},
-      {date: "2014", price: "631"},
-      {date: "2015", price: "503"},
-      {date: "2016", price: "503"},
-      {date: "2017", price: "467"},
-      {date: "2018", price: "480"}
+      {date: "2010", value: "438"},
+      {date: "2011", value: "430"},
+      {date: "2012", value: "454"},
+      {date: "2013", value: "491"},
+      {date: "2014", value: "631"},
+      {date: "2015", value: "503"},
+      {date: "2016", value: "503"},
+      {date: "2017", value: "467"},
+      {date: "2018", value: "480"}
     ]
   }
 ];
@@ -141,7 +141,7 @@ var parseDate = d3.timeParse("%Y");
 data.forEach(function(d) { 
   d.values.forEach(function(d) {
     d.date = parseDate(d.date);
-    d.price = +d.price;    
+    d.value = +d.value;    
   });
 });
 
@@ -152,7 +152,7 @@ var xScale = d3.scaleTime()
   .range([0, width-margin]);
 
 var yScale = d3.scaleLinear()
-  .domain([0, d3.max(data[0].values, d => d.price)])
+  .domain([0, d3.max(data[0].values, d => d.value)])
   .range([0, height-margin]);
 
 var color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -168,7 +168,7 @@ var svg = d3.select("#linechart").append("svg")
 /* Add line into SVG */
 var line = d3.line()
   .x(d => xScale(d.date))
-  .y(d => yScale(d.price));
+  .y(d => yScale(d.value));
 
 let lines = svg.append('g')
   .attr('class', 'lines');
@@ -229,9 +229,9 @@ lines.selectAll("circle-group")
         .style("cursor", "pointer")
         .append("text")
         .attr("class", "text")
-        .text(`${d.price}`)
+        .text(`${d.value}`)
         .attr("x", d => xScale(d.date) + 5)
-        .attr("y", d => yScale(d.price) - 10);
+        .attr("y", d => yScale(d.value) - 10);
     })
   .on("mouseout", function(d) {
       d3.select(this)
@@ -242,7 +242,7 @@ lines.selectAll("circle-group")
     })
   .append("circle")
   .attr("cx", d => xScale(d.date))
-  .attr("cy", d => yScale(d.price))
+  .attr("cy", d => yScale(d.value))
   .attr("r", circleRadius)
   .style('opacity', circleOpacity)
   .on("mouseover", function(d) {
