@@ -227,7 +227,7 @@ var xScale = d3.scaleTime()
 
 var yScale = d3.scaleLinear()
   .domain([0, d3.max(data[0].values, d => d.value)])
-  .range([0, height-margin]);
+  .range([60, height-margin]);
 
 var color = d3.scaleOrdinal(d3.schemeCategory10);
 
@@ -349,7 +349,7 @@ svg.append("g")
   .attr("y", -25)
   .attr("transform", "rotate(-90)")
   .attr("fill", "#000")
-  .text("Complaints");
+  .text("DFS rank");
   </script>
 </body>
 

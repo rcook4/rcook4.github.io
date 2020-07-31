@@ -221,7 +221,7 @@ var xScale = d3.scaleTime()
   .range([0, width-margin]);
 
 var yScale = d3.scaleLinear()
-  .domain([0, d3.max(data[0].values, d => d.value)])
+  .domain([0, 200])
   .range([height-margin, 0]);
 
 var color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -344,7 +344,7 @@ svg.append("g")
   .attr("y", -25)
   .attr("transform", "rotate(-90)")
   .attr("fill", "#000")
-  .text("Complaints");
+  .text("Percent growth since 2009");
   </script>
 </body>
 
