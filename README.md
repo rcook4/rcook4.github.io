@@ -29,5 +29,5 @@ There exists a Next button which triggers transition to the subquent scene. Addi
 
 # Resources
 * https://data.ny.gov/Government-Finance/Automobile-Insurance-Company-Complaint-Rankings-Be/h2wd-9xfe
-* https://bl.ocks.org/larsenmtl/e3b8b7c2ca4787f77d78f58d41c3da91
+* https://codepen.io/zakariachowdhury/pen/JEmjwq
 * https://bl.ocks.org/susielu/625aa4814098671290a8c6bb88a6301e
