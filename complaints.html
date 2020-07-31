@@ -2,9 +2,9 @@
 <html>
 
 <head>
-  <script src="https://d3js.org/d3.v4.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.js"></script>
-  <script src="https://cdn.rawgit.com/susielu/d3-annotation/75ff6169/d3-annotation.js"></script>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
   <style>
     body {
       font: 10px sans-serif;
@@ -324,25 +324,26 @@
           });
       });
 
-const annotations = [
-  {
-    note: {
-      label: "Here is the annotation label",
-      title: "Annotation title"
-    },
-    x: 100,
-    y: 100,
-    dy: 100,
-    dx: 100
-  }
-]
+      const annotations = [
+        {
+          note: {
+            label: "Basic settings with subject position(x,y) and a note offset(dx, dy)",
+            title: "d3.annotationLabel"
+          },
+          x: 50,
+          y: 150,
+          dy: 137,
+          dx: 162
+        }].map(function(d){ d.color = "#E8336D"; return d})
 
-// Add annotation to the chart
-const makeAnnotations = d3.annotation()
-  .annotations(annotations)
-d3.select("#linechart")
-  .append("g")
-  .call(makeAnnotations)
+        const makeAnnotations = d3.annotation()
+          .type(d3.annotationLabel)
+          .annotations(annotations)
+
+        d3.select("svg")
+          .append("g")
+          .attr("class", "annotation-group")
+          .call(makeAnnotations)
 
   </script>
 </body>
