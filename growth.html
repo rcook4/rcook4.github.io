@@ -358,11 +358,12 @@ function appendAnnotation() {
 }
 
 
-d3.select("#linechart button").on("click", function(){
-	annotate = !annotate;
-	
+d3.select("#linechart button").on("click", function()
+  {
+    appendAnnotation()
 	svg.select("#warning").remove();
-	}
+	annotate = !annotate;
+  }
 );
 
 var getQueryString = function ( field, url ) {
