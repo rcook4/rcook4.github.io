@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <script src="https://d3js.org/d3.v4.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.js"></script>
   <script src="https://cdn.rawgit.com/susielu/d3-annotation/75ff6169/d3-annotation.js"></script>
   <style>
@@ -322,21 +323,26 @@
             return "translate(" + mouse[0] + "," + pos.y +")";
           });
       });
-      const annotations = [
-        {
-          subject: {
-            text: "2015 and 2016 data was suspiciously identical"
-          },
-          x: 100,
-          y: 100,
-          dy: 100,
-          dx: 100
-        }
-      ];
 
-      const makeAnnotations = d3.annotation().type(d3.annotationLabel).annotations(annotations);
+const annotations = [
+  {
+    note: {
+      label: "Here is the annotation label",
+      title: "Annotation title"
+    },
+    x: 100,
+    y: 100,
+    dy: 100,
+    dx: 100
+  }
+]
 
-      d3.select("svg").append("g").attr("class", "annotation-group").call(makeAnnotations);
+// Add annotation to the chart
+const makeAnnotations = d3.annotation()
+  .annotations(annotations)
+d3.select("#linechart")
+  .append("g")
+  .call(makeAnnotations)
 
   </script>
 </body>
