@@ -124,14 +124,14 @@ var height = 500;
 var margin = 50;
 var duration = 250;
 
-var lineOpacity = "0.1";
+var lineOpacity = "0.5";
 var lineOpacityHover = "0.9";
 var otherLinesOpacityHover = "0.1";
 var lineStroke = "3px";
 var lineStrokeHover = "5px";
 
 var circleOpacity = '0.9';
-var circleOpacityOnLineHover = "0.1"
+var circleOpacityOnLineHover = "0.5"
 var circleRadius = 3;
 var circleRadiusHover = 7;
 
@@ -272,7 +272,7 @@ svg.append("g")
   .attr("class", "y axis")
   .call(yAxis)
   .append('text')
-  .attr("y", -50)
+  .attr("y", -25)
   .attr("transform", "rotate(-90)")
   .attr("fill", "#000")
   .text("Complaints");
