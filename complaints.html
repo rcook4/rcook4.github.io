@@ -333,11 +333,11 @@
           dy: 0,
           dx: 0
         }
-      ]
+      ];
 
-  const makeAnnotations = d3.annotation().type(d3.annotationLabel).annotations(annotations);
+      const makeAnnotations = d3.annotation().type(d3.annotationLabel).annotations(annotations);
 
-  d3.select("svg").append("g").attr("class", "annotation-group").call(makeAnnotations);
+      d3.select("svg").append("g").attr("class", "annotation-group").call(makeAnnotations);
 
   </script>
 </body>
