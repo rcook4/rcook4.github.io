@@ -352,11 +352,12 @@ svg.append("text")
   .style("font-size", "10px")
   .attr("x", 450)
   .attr("y", 440)
+  .attr("id", "warning")
   .text(annotate); //"Suspicious data: 2015 identical to 2016");
 
 
 
-d3.select("#linechart button").on("click", function(){annotate = !annotate;svg.selectAll("text").remove();})
+d3.select("#linechart button").on("click", function(){annotate = !annotate;svg.select("#warning").remove();})
 var getQueryString = function ( field, url ) {
 	var href = url ? url : window.location.href;
 	var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
