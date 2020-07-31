@@ -340,7 +340,7 @@
           .type(d3.annotationLabel)
           .annotations(annotations)
 
-        d3.select("#linechart").append("svg")
+        svg
           .append("g")
           .attr("class", "annotation-group")
           .call(makeAnnotations)
