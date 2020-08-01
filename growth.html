@@ -362,10 +362,14 @@ function appendAnnotation() {
 if (window.location.href.indexOf("annotate=true") !== -1) {
   annotate = true;
   appendAnnotation();
+  document.getElementById('next').action = 'https://rcook4.github.io/growth.html?annotate=true';
+  document.getElementById("growth").setAttribute('href', "https://rcook4.github.io/opening.html?annotate=true");
   }
 else {
   annotate = false;
   removeAnnotation();
+  document.getElementById('next').action = 'https://rcook4.github.io/growth.html?annotate=false';
+  document.getElementById("growth").setAttribute('href', "https://rcook4.github.io/opening.html?annotate=false");
 }
 
 d3.select("#linechart button").on("click", function()
