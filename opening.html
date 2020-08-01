@@ -81,12 +81,13 @@
   <h3>References</h3>
   <p><a href="https://data.ny.gov/Government-Finance/Automobile-Insurance-Company-Complaint-Rankings-Be/h2wd-9xfe" style="background-color:white;color:blue;display:auto;hover:none;padding:0px 0px;">Automobile Insurance Company Complaint Rankings: Beginning 2009</a> from New York State Department of Financial Services (DFS).
   <form id="next" action="https://rcook4.github.io/growth.html?annotate=null">
+    <input type="hidden" name="annotate" id="annotate" value="null">
     <input type="submit" value="Next"/>
   </form>
   <script>
 function removeAnnotation() {
   annotate = false;
-  document.getElementById('next').action = 'https://rcook4.github.io/growth.html?annotate=false';
+  document.getElementById('annotate').value = "false";
   document.getElementById("opening").setAttribute('href', "https://rcook4.github.io/opening.html?annotate=false");
   document.getElementById("growth").setAttribute('href', "https://rcook4.github.io/growth.html?annotate=false");
   document.getElementById("rank").setAttribute('href', "https://rcook4.github.io/rank.html?annotate=false");
@@ -95,7 +96,7 @@ function removeAnnotation() {
 
 function appendAnnotation() {
   annotate = true;
-  document.getElementById('next').action = 'https://rcook4.github.io/growth.html?annotate=true';
+  document.getElementById('annotate').value = "true";
   document.getElementById("opening").setAttribute('href', "https://rcook4.github.io/opening.html?annotate=true");
   document.getElementById("growth").setAttribute('href', "https://rcook4.github.io/growth.html?annotate=true");
   document.getElementById("rank").setAttribute('href', "https://rcook4.github.io/rank.html?annotate=true");
