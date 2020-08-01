@@ -25,7 +25,7 @@ There exists annotations about the suspect data for the years 2015 and 2016. The
 There is a parameter for annotation visiblilty controlled by TOGGLE ANNOTATIONS buttons for setting both the inital and current state of displayed charts.
 
 ## Triggers
-There exists a NEXT button which triggers transition to the subquent scene. Additionally a navigation menu exists above all scenes which allows for triggering transition to any selected scene.
+A top of screen navigation menu exists which will be familar to any reader, providing a trigger for transition to any scene. Additionally there exists a  bottom of screen NEXT button which triggers transition to the subquent scene.
 
 # Resources
 * https://data.ny.gov/Government-Finance/Automobile-Insurance-Company-Complaint-Rankings-Be/h2wd-9xfe
