@@ -347,6 +347,10 @@ svg.append("g")
 
 var annotate = true;
 
+function removeAnnotation() {
+  svg.select("#warning").remove();
+}
+
 function appendAnnotation() {
   svg.append("text")
     .style("fill", "red")
@@ -359,6 +363,8 @@ function appendAnnotation() {
 
 if (window.location.href.indexOf("annotate=true") !== -1)
   appendAnnotation();
+else
+  appendAnnotation();
 
 d3.select("#linechart button").on("click", function()
   {
@@ -366,7 +372,7 @@ d3.select("#linechart button").on("click", function()
     if (annotate)
       appendAnnotation();
 	else
-	  svg.select("#warning").remove();
+	  removeAnnotation();
   }
 );
 
