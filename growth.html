@@ -69,7 +69,7 @@
   <p>For trending FLAT, there were zero companies.</p>
   <div id="linechart"><p><i>Hover over chart lines and points for additional details</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button>Toggle Annotations</button></p></div>
   <form id="next" action="https://rcook4.github.io/rank.html">
-    <input type="hidden" name="checkyear" id="checkyear" value="2010">
+    <input type="hidden" name="annotate" id="annotate" value="null">
     <input type="submit" value="Next"/>
   </form>
   <script>
@@ -348,7 +348,7 @@ svg.append("g")
 
 function removeAnnotation() {
   annotate = false;
-  document.getElementById('next').action = 'https://rcook4.github.io/rank.html?annotate=false';
+  document.getElementById('annotate').value = "false";
   document.getElementById("opening").setAttribute('href', "https://rcook4.github.io/opening.html?annotate=false");
   document.getElementById("growth").setAttribute('href', "https://rcook4.github.io/growth.html?annotate=false");
   document.getElementById("rank").setAttribute('href', "https://rcook4.github.io/rank.html?annotate=false");
@@ -358,7 +358,7 @@ function removeAnnotation() {
 
 function appendAnnotation() {
   annotate = true;
-  document.getElementById('next').action = 'https://rcook4.github.io/rank.html?annotate=true';
+  document.getElementById('annotate').value = "true";
   document.getElementById("opening").setAttribute('href', "https://rcook4.github.io/opening.html?annotate=true");
   document.getElementById("growth").setAttribute('href', "https://rcook4.github.io/growth.html?annotate=true");
   document.getElementById("rank").setAttribute('href', "https://rcook4.github.io/rank.html?annotate=true");
