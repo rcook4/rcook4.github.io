@@ -357,8 +357,8 @@ function appendAnnotation() {
     .text(annotate); //"Suspicious data: 2015 identical to 2016");
 }
 
-if (window.location.href.includes("annotate=true")
-	appendAnnotation();
+//if (window.location.href.includes("annotate=true")
+//	appendAnnotation();
 
 d3.select("#linechart button").on("click", function()
   {
@@ -369,14 +369,6 @@ d3.select("#linechart button").on("click", function()
 	  svg.select("#warning").remove();
   }
 );
-
-var getQueryString = function ( field, url ) {
-	var href = url ? url : window.location.href;
-	var reg = new RegExp( '[?&]annotate=([^&#]*)', 'i' );
-	var string = reg.exec(href);
-	return string ? string[1] : null;
-};
-var thisOne = getQueryString('this'); // returns 'chicken'
 
   </script>
 </body>
