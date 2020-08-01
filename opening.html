@@ -57,10 +57,10 @@
 </head>
 
 <body>
-  <a href="https://rcook4.github.io/opening.html?annotate=true" class="opening">Opening</a>
-  <a href="https://rcook4.github.io/growth.html?annotate=true" class="growth">Growth</a>
-  <a href="https://rcook4.github.io/rank.html?annotate=true" class="rank">Rank</a>
-  <a href="https://rcook4.github.io/complaints.html?annotate=true" class="complaints">Complaints</a>
+  <a id="opening" href="https://rcook4.github.io/opening.html?annotate=true" class="opening">Opening</a>
+  <a id="growth" href="https://rcook4.github.io/growth.html?annotate=true" class="growth">Growth</a>
+  <a id="rank" href="https://rcook4.github.io/rank.html?annotate=true" class="rank">Rank</a>
+  <a id="complaints" href="https://rcook4.github.io/complaints.html?annotate=true" class="complaints">Complaints</a>
 
   <h2>Opening</h2>
   <h3>Hypothesis</h3>
@@ -83,7 +83,30 @@
   <form name="next" action="https://rcook4.github.io/growth.html">
     <input type="submit" value="Next"/>
   </form>
-  <script>document.getElementById('next').action = 'https://rcook4.github.io/growth.html?annotate=true';</script>
+  <script>
+function changeLink() {
+  window.open(document.getElementById("growth").href,'https://rcook4.github.io/opening.html');
+
+  if (annotate) {
+    //link.innerHTML = "facebook";
+    document.getElementById("growth").setAttribute('href', "https://rcook4.github.io/opening.html?annotate=true");
+  }
+  else {
+    document.getElementById("growth").setAttribute('href', "https://rcook4.github.io/opening.html?annotate=false");
+  }
+
+  return false;
+}
+
+if (window.location.href.indexOf("annotate=true") !== -1) {
+  annotate = true;
+  }
+else {
+  annotate = false;
+}
+
+document.getElementById('next').action = 'https://rcook4.github.io/growth.html?annotate=true';
+  </script>
 </body>
 
 </html>
