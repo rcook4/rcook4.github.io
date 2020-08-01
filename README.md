@@ -1,8 +1,8 @@
+# URL
+http://rcook4.github.io/
+
 # Title
 Final Project - Create a Narrative Visualization
-
-# Publicly visible website
-http://rcook4.github.io/
 
 # Essay
 
