@@ -364,7 +364,7 @@ function appendAnnotation() {
 if (window.location.href.indexOf("annotate=true") !== -1)
   appendAnnotation();
 else
-  appendAnnotation();
+  removeAnnotation();
 
 d3.select("#linechart button").on("click", function()
   {
