@@ -1,4 +1,4 @@
-# Summer 2020
+# Title
 Final Project - Create a Narrative Visualization
 
 # Publicly visible website
