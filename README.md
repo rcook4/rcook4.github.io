@@ -7,27 +7,26 @@ https://rcook4.github.io/
 # Essay
 
 ## Messaging
-You might expect that there will be a strong positive correlation between customer satisfaction and premiums written for auto insurance compainies.
+You might expect that there will be a strong positive correlation between customer satisfaction and premiums written for auto insurance compainies. For this project that was not the case.
 
 ## Narrative Structure
 This interactive slide show includes the ability to "drill-down" for additional details through tooltips which appear during mouseover of chart lines.
 
 ## Visual Structure
-Each scene includes the authors comments above one line chart which uses a consistent color per company and visual style to include movement toward the upper right is always considered improving.
+The OPENING scene explains what data is to be looked at, why it has value and in the order of the journey of the reader. Each remaining scene includes the writers comments highlighting important data items. These are always above the one line chart which uses a consistent color per company and visual style to include movement toward the upper right consistently being considered improvement. There is an italicized note to the reader informing them of existing tooltips. The NEXT and TOGGLE ANNOTATIONS buttons are consistently organized.
 
 ## Scenes
-There is an OPENING scene detailing the hypothesis, data, test, results and references. The GROWTH scene establishes a baseline for trends of "premiums collected". The RANK scene is a test against trends of "customer satisfaction". The COMPLAINTS scene is a second test againsts trends of "customer satisfaction". The COMPLAINTS scene then wraps back around to the OPENING scene.
+There is an OPENING scene detailing the hypothesis, data, test, results and references. They are ordered as a squence of hypothesis tests and therefore in a building the evidence of proof progression.
 
 ## Annotations
 There exists annotations about the suspect data for the years 2015 and 2016. They follow from chart to chart since the same dataset is being used for each one.
 
 ## Parameters
-There is a parameter for annotation visiblilty which controls both the inital and current state of any chart being displayed.
+There is a parameter for annotation visiblilty controlled by TOGGLE ANNOTATIONS buttons for setting both the inital and current state of displayed charts.
 
 ## Triggers
-There exists a Next button which triggers transition to the subquent scene. Additionally a navigation menu exists above all scenes which allows for triggering transition to any selected scene.
+There exists a NEXT button which triggers transition to the subquent scene. Additionally a navigation menu exists above all scenes which allows for triggering transition to any selected scene.
 
 # Resources
 * https://data.ny.gov/Government-Finance/Automobile-Insurance-Company-Complaint-Rankings-Be/h2wd-9xfe
 * https://codepen.io/zakariachowdhury/pen/JEmjwq
-* 
