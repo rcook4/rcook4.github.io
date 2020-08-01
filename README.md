@@ -2,7 +2,7 @@
 Final Project - Create a Narrative Visualization
 
 # Publicly visible website
-https://rcook4.github.io/
+http://rcook4.github.io/
 
 # Essay
 
