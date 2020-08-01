@@ -347,16 +347,21 @@ svg.append("g")
 
 function removeAnnotation() {
   annotate = false;
-  svg.select("#warning").remove();
   document.getElementById('next').action = 'https://rcook4.github.io/rank.html?annotate=false';
   document.getElementById("opening").setAttribute('href', "https://rcook4.github.io/opening.html?annotate=false");
   document.getElementById("growth").setAttribute('href', "https://rcook4.github.io/growth.html?annotate=false");
   document.getElementById("rank").setAttribute('href', "https://rcook4.github.io/rank.html?annotate=false");
   document.getElementById("complaints").setAttribute('href', "https://rcook4.github.io/complaints.html?annotate=false");
+  svg.select("#warning").remove();
 }
 
 function appendAnnotation() {
   annotate = true;
+  document.getElementById('next').action = 'https://rcook4.github.io/rank.html?annotate=true';
+  document.getElementById("opening").setAttribute('href', "https://rcook4.github.io/opening.html?annotate=true");
+  document.getElementById("growth").setAttribute('href', "https://rcook4.github.io/growth.html?annotate=true");
+  document.getElementById("rank").setAttribute('href', "https://rcook4.github.io/rank.html?annotate=true");
+  document.getElementById("complaints").setAttribute('href', "https://rcook4.github.io/complaints.html?annotate=true");
   svg.append("text")
     .style("fill", "red")
     .style("font-size", "10px")
@@ -364,11 +369,6 @@ function appendAnnotation() {
     .attr("y", 440)
     .attr("id", "warning")
     .text(annotate); //"Suspicious data: 2015 identical to 2016");
-  document.getElementById('next').action = 'https://rcook4.github.io/rank.html?annotate=true';
-  document.getElementById("opening").setAttribute('href', "https://rcook4.github.io/opening.html?annotate=true");
-  document.getElementById("growth").setAttribute('href', "https://rcook4.github.io/growth.html?annotate=true");
-  document.getElementById("rank").setAttribute('href', "https://rcook4.github.io/rank.html?annotate=true");
-  document.getElementById("complaints").setAttribute('href', "https://rcook4.github.io/complaints.html?annotate=true");
 }
 
 if (window.location.href.indexOf("annotate=true") !== -1) {
