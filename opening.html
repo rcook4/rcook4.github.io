@@ -84,28 +84,17 @@
     <input type="submit" value="Next"/>
   </form>
   <script>
-function changeLink() {
-  window.open(document.getElementById("growth").href,'https://rcook4.github.io/opening.html');
-
-  if (annotate) {
-    //link.innerHTML = "facebook";
-    document.getElementById("growth").setAttribute('href', "https://rcook4.github.io/opening.html?annotate=true");
-  }
-  else {
-    document.getElementById("growth").setAttribute('href', "https://rcook4.github.io/opening.html?annotate=false");
-  }
-
-  return false;
-}
-
 if (window.location.href.indexOf("annotate=true") !== -1) {
   annotate = true;
+  document.getElementById('next').action = 'https://rcook4.github.io/growth.html?annotate=true';
+  document.getElementById("growth").setAttribute('href', "https://rcook4.github.io/opening.html?annotate=true");
   }
 else {
   annotate = false;
+  document.getElementById('next').action = 'https://rcook4.github.io/growth.html?annotate=false';
+  document.getElementById("growth").setAttribute('href', "https://rcook4.github.io/opening.html?annotate=false");
 }
 
-document.getElementById('next').action = 'https://rcook4.github.io/growth.html?annotate=true';
   </script>
 </body>
 
